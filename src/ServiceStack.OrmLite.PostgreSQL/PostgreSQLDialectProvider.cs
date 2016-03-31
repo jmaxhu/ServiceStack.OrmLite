@@ -54,6 +54,10 @@ namespace ServiceStack.OrmLite.PostgreSQL
 
             RegisterConverter<byte[]>(new PostrgreSqlByteArrayConverter());
 
+#if NET45
+            RegisterConverter<PostgisGeometry>(new PostgisGeometryConverter());
+#endif
+
             //TODO provide support for pgsql native datastructures:
             //RegisterConverter<string[]>(new PostgreSqlStringArrayConverter());
             //RegisterConverter<int[]>(new PostgreSqlIntArrayConverter());
